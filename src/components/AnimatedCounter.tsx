@@ -15,7 +15,7 @@ export default function AnimatedCounter({
   duration = 2000,
   label,
 }: AnimatedCounterProps) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(target);
   const [started, setStarted] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -40,6 +40,7 @@ export default function AnimatedCounter({
   useEffect(() => {
     if (!started) return;
 
+    setCount(0);
     const steps = 60;
     const increment = target / steps;
     const stepTime = duration / steps;
