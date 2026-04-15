@@ -3,13 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/menu", label: "Menu" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-];
+import { dukeLinks, primaryNav } from "@/lib/siteData";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -52,8 +46,8 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
+          <nav className="hidden xl:flex items-center gap-6">
+            {primaryNav.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -68,19 +62,27 @@ export default function Header() {
               </Link>
             ))}
             <a
-              href="https://dukes.securetree.com/"
+              href={dukeLinks.order}
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-2 px-5 py-2 bg-copper text-charcoal text-sm font-bold uppercase tracking-wider rounded hover:bg-amber transition-colors"
+              className="ml-2 px-4 py-2 bg-copper text-charcoal text-sm font-bold uppercase tracking-wider rounded hover:bg-amber transition-colors"
             >
-              Gift Cards
+              Order Online
+            </a>
+            <a
+              href={dukeLinks.reservations}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 border border-copper/40 text-copper text-sm font-bold uppercase tracking-wider rounded hover:bg-copper/10 transition-colors"
+            >
+              Reservations
             </a>
           </nav>
 
           {/* Mobile Hamburger */}
           <button
             onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="md:hidden relative w-8 h-8 flex flex-col items-center justify-center gap-1.5"
+            className="xl:hidden relative w-8 h-8 flex flex-col items-center justify-center gap-1.5"
             aria-label="Toggle menu"
           >
             <span
@@ -104,12 +106,12 @@ export default function Header() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ${
-          isMobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        className={`xl:hidden overflow-hidden transition-all duration-300 ${
+          isMobileOpen ? "max-h-[36rem] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <nav className="bg-charcoal/98 backdrop-blur-md border-t border-copper/20 px-4 py-6 flex flex-col gap-4">
-          {navLinks.map((link) => (
+          {primaryNav.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -121,10 +123,32 @@ export default function Header() {
             </Link>
           ))}
           <a
-            href="https://dukes.securetree.com/"
+            href={dukeLinks.order}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-2 px-5 py-3 bg-copper text-charcoal text-center text-sm font-bold uppercase tracking-wider rounded hover:bg-amber transition-colors"
+            className="mt-2 px-5 py-3 bg-copper text-charcoal text-center text-sm font-bold uppercase tracking-wider rounded hover:bg-amber transition-all"
+          >
+            Order Online
+          </a>
+          <a
+            href={dukeLinks.reservations}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-3 border border-copper/40 text-copper text-center text-sm font-bold uppercase tracking-wider rounded hover:bg-copper/10 transition-all"
+          >
+            Reservations
+          </a>
+          <a
+            href={dukeLinks.parties}
+            className="px-5 py-3 border border-copper/20 text-cream/80 text-center text-sm font-bold uppercase tracking-wider rounded hover:border-copper/40 hover:text-copper transition-all"
+          >
+            Book a Party
+          </a>
+          <a
+            href={dukeLinks.giftCards}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-3 border border-copper/20 text-cream/80 text-center text-sm font-bold uppercase tracking-wider rounded hover:border-copper/40 hover:text-copper transition-all"
           >
             Gift Cards
           </a>

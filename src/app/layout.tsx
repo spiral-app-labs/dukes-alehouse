@@ -2,14 +2,19 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import StickyMobileActions from "@/components/StickyMobileActions";
+import { dukeLinks, siteUrl } from "@/lib/siteData";
+
+const metadataBase = new URL(siteUrl);
 
 export const metadata: Metadata = {
+  metadataBase,
   title: {
-    default: "Duke's Alehouse & Kitchen | Crystal Lake's Premier Gastropub",
+    default: "Duke's Alehouse & Kitchen | Crystal Lake Craft Beer and Kitchen",
     template: "%s | Duke's Alehouse & Kitchen",
   },
   description:
-    "Eco-conscious gastropub in Crystal Lake, IL featuring gourmet burgers, 140+ craft beers, 21 rotating taps, and comfort food made with sustainable local ingredients. Live music venue.",
+    "Downtown Crystal Lake gastropub with direct online ordering, Tock reservations, 140+ craft beers and Belgian ales, rotating live events, and Duke's signature menu.",
   keywords: [
     "gastropub",
     "Crystal Lake IL",
@@ -21,19 +26,28 @@ export const metadata: Metadata = {
     "Duke's Alehouse",
   ],
   openGraph: {
-    title: "Duke's Alehouse & Kitchen | Crystal Lake's Premier Gastropub",
+    title: "Duke's Alehouse & Kitchen | Crystal Lake Craft Beer and Kitchen",
     description:
-      "Eco-conscious gastropub featuring gourmet burgers, 140+ craft beers, and comfort food from sustainable local ingredients.",
-    url: "https://thedukeabides.com",
+      "Order direct, book reservations on Tock, explore the beer list, and plan banquets at Duke's Alehouse & Kitchen in Crystal Lake.",
+    url: siteUrl,
     siteName: "Duke's Alehouse & Kitchen",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: `${siteUrl}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: "Duke's Alehouse & Kitchen in Crystal Lake, Illinois",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Duke's Alehouse & Kitchen",
     description:
-      "Crystal Lake's premier gastropub — 140+ craft beers, gourmet burgers, live music.",
+      "Order direct, reserve on Tock, and explore Duke's craft beer and event calendar.",
+    images: [`${siteUrl}/opengraph-image`],
   },
   robots: {
     index: true,
@@ -45,9 +59,11 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Restaurant",
   name: "Duke's Alehouse & Kitchen",
-  image: [],
-  url: "https://thedukeabides.com",
+  image: [`${siteUrl}/opengraph-image`],
+  url: siteUrl,
   telephone: "(815) 356-9980",
+  email: "hello@dukesalehouse.net",
+  menu: dukeLinks.order,
   address: {
     "@type": "PostalAddress",
     streetAddress: "110 N Main St",
@@ -64,7 +80,13 @@ const jsonLd = {
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      dayOfWeek: ["Monday", "Wednesday", "Thursday", "Sunday"],
+      opens: "12:00",
+      closes: "00:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Friday", "Saturday"],
       opens: "12:00",
       closes: "01:00",
     },
@@ -97,6 +119,7 @@ export default function RootLayout({
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <StickyMobileActions />
       </body>
     </html>
   );
