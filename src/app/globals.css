@@ -18,6 +18,13 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  padding-bottom: 5.5rem;
+}
+
+@media (min-width: 1280px) {
+  body {
+    padding-bottom: 0;
+  }
 }
 
 /* Parallax */
