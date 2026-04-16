@@ -1,256 +1,440 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
 import {
+  dukeBrandAssets,
+  dukeBusiness,
   dukeLinks,
   eventFeatures,
-  heroStats,
-  privateEventDetails,
-  reviews,
-  serviceNotes,
+  fastFacts,
+  heroChips,
+  menuMoments,
+  menuPreview,
+  neighborhoodNotes,
+  partyUseCases,
+  privatePartyDetails,
 } from "@/lib/siteData";
 
 export default function HomePage() {
   return (
     <>
-      <section className="relative overflow-hidden border-b border-copper/10 bg-[radial-gradient(circle_at_top_left,_rgba(212,162,78,0.25),_transparent_30%),radial-gradient(circle_at_bottom_right,_rgba(184,115,51,0.16),_transparent_30%),linear-gradient(180deg,_#171520,_#0f0f1a_60%)] pt-28">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-copper/60 to-transparent" />
-        <div className="mx-auto grid min-h-[calc(100svh-5rem)] max-w-7xl gap-10 px-4 pb-14 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:px-8">
-          <div className="flex flex-col justify-center">
-            <motion.p
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mb-5 text-xs uppercase tracking-[0.45em] text-copper"
-            >
-              Crystal Lake • Order Direct • Reserve on Tock
-            </motion.p>
-            <motion.h1
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.08 }}
-              className="max-w-4xl font-serif text-5xl font-bold leading-none text-cream md:text-7xl"
-            >
-              Duke&apos;s is the downtown tavern for craft pours, loud plates, and late nights.
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.16 }}
-              className="mt-6 max-w-2xl text-lg leading-8 text-cream/70"
-            >
-              This pass restores the real business flow: direct ordering, Tock reservations,
-              live events, beer access, private parties, split kitchen and bar hours, and menu
-              sections built from Duke&apos;s public PDFs instead of template filler.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.24 }}
-              className="mt-8 flex flex-col gap-3 sm:flex-row"
-            >
-              <a href={dukeLinks.order} target="_blank" rel="noopener noreferrer" className="rounded-full bg-copper px-6 py-4 text-center text-sm font-bold uppercase tracking-[0.25em] text-dark-bg transition hover:bg-amber">
+      <section className="relative isolate overflow-hidden pt-24">
+        <Image
+          src={dukeBrandAssets.hero}
+          alt={dukeBusiness.name}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="hero-scrim absolute inset-0" />
+        <div className="grain-overlay absolute inset-0" />
+        <div className="section-shell relative grid min-h-[calc(100svh-6rem)] gap-10 pb-14 lg:grid-cols-[1.08fr_0.92fr] lg:items-end lg:pb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85 }}
+            className="flex flex-col justify-end py-10"
+          >
+            <p className="kicker text-[11px] text-[var(--gold-300)]">
+              Bramble in downtown Crystal Lake
+            </p>
+            <h1 className="display-serif mt-5 max-w-4xl text-5xl leading-[0.92] text-[var(--stone-100)] md:text-7xl xl:text-[5.6rem]">
+              {dukeBusiness.heroTitle}
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[rgba(241,235,222,0.78)]">
+              {dukeBusiness.heroBody}
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href={dukeLinks.order}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full bg-[var(--rust-500)] px-6 py-4 text-center text-xs font-semibold uppercase tracking-[0.28em] text-[var(--ink-950)] transition hover:-translate-y-0.5 hover:bg-[var(--rust-600)]"
+              >
                 Order Online
               </a>
-              <a href={dukeLinks.reservations} target="_blank" rel="noopener noreferrer" className="rounded-full border border-copper/50 px-6 py-4 text-center text-sm font-bold uppercase tracking-[0.25em] text-copper transition hover:bg-copper/10">
-                Reservations
+              <a
+                href={dukeLinks.reservations}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-white/20 px-6 py-4 text-center text-xs font-semibold uppercase tracking-[0.28em] text-[var(--stone-100)] transition hover:border-[var(--rust-500)] hover:text-[var(--gold-300)]"
+              >
+                Reserve on Tock
               </a>
-              <Link href={dukeLinks.parties} className="rounded-full border border-cream/15 px-6 py-4 text-center text-sm font-bold uppercase tracking-[0.25em] text-cream/80 transition hover:border-copper/50 hover:text-copper">
-                Book a Party
+              <Link
+                href={dukeLinks.menu}
+                className="rounded-full border border-white/12 px-6 py-4 text-center text-xs font-semibold uppercase tracking-[0.28em] text-[rgba(241,235,222,0.78)] transition hover:border-[var(--rust-500)] hover:text-[var(--gold-300)]"
+              >
+                See Menu
               </Link>
-            </motion.div>
-            <motion.p
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.32 }}
-              className="mt-4 text-sm text-cream/50"
-            >
-              We did not verify DoorDash or Uber Eats listings, so the site now explicitly points guests to Duke&apos;s official order flow.
-            </motion.p>
-          </div>
+            </div>
+          </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.15, duration: 0.6 }}
-            className="relative flex items-center lg:justify-end"
+            initial={{ opacity: 0, y: 44 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.14 }}
+            className="flex items-end lg:justify-end"
           >
-            <div className="w-full max-w-xl rounded-[2rem] border border-copper/20 bg-charcoal/60 p-6 shadow-[0_30px_90px_rgba(0,0,0,0.45)] backdrop-blur-xl">
-              <div className="grid gap-3 sm:grid-cols-2">
-                {heroStats.map((stat, index) => (
-                  <motion.div
-                    key={stat.label}
-                    whileHover={{ rotateX: 5, rotateY: -5, translateY: -4 }}
-                    transition={{ duration: 0.2 }}
-                    className="rounded-3xl border border-copper/10 bg-dark-bg/70 p-5"
-                    style={{ transformStyle: "preserve-3d" }}
+            <div className="line-card poster-shadow w-full max-w-xl rounded-[2rem] p-6 sm:p-7">
+              <div className="flex flex-wrap gap-2">
+                {heroChips.map((chip) => (
+                  <span
+                    key={chip}
+                    className="kicker rounded-full border border-white/10 px-3 py-2 text-[10px] text-[rgba(241,235,222,0.7)]"
                   >
-                    <p className="font-serif text-4xl text-copper">{stat.value}</p>
-                    <p className="mt-2 text-sm uppercase tracking-[0.2em] text-cream/55">{stat.label}</p>
-                    <div className="mt-4 h-1 rounded-full bg-copper/10">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${55 + index * 10}%` }}
-                        viewport={{ once: true }}
-                        className="h-full rounded-full bg-gradient-to-r from-copper to-amber"
-                      />
-                    </div>
-                  </motion.div>
+                    {chip}
+                  </span>
                 ))}
               </div>
-
-              <div className="mt-4 rounded-3xl border border-copper/10 bg-gradient-to-r from-copper/8 via-amber/10 to-copper/8 p-5">
-                <div className="flex items-center justify-between gap-4">
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.35em] text-copper">Tap Wall</p>
-                    <p className="mt-2 font-serif text-2xl text-cream">A better beer front door</p>
-                  </div>
-                  <a href={dukeLinks.beerMenu} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-copper hover:text-amber">
-                    Open Untappd
-                  </a>
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                <div className="rounded-[1.5rem] border border-white/10 bg-black/15 p-5">
+                  <p className="kicker text-[10px] text-[var(--gold-300)]">Primary path</p>
+                  <p className="display-serif mt-3 text-3xl text-[var(--stone-100)]">
+                    Toast for takeout, Tock for the table.
+                  </p>
                 </div>
-                <div className="mt-5 grid grid-cols-7 gap-2">
-                  {Array.from({ length: 14 }).map((_, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ height: 18, opacity: 0.3 }}
-                      animate={{ height: [18, 52 + (index % 5) * 18, 28], opacity: [0.3, 1, 0.75] }}
-                      transition={{ duration: 3, repeat: Infinity, delay: index * 0.1 }}
-                      className="rounded-full bg-gradient-to-t from-copper to-amber"
-                    />
-                  ))}
+                <div className="rounded-[1.5rem] border border-white/10 bg-black/15 p-5">
+                  <p className="kicker text-[10px] text-[var(--gold-300)]">Tonight logic</p>
+                  <p className="display-serif mt-3 text-3xl text-[var(--stone-100)]">
+                    Beer board, dinner order, then the room takes over.
+                  </p>
                 </div>
+              </div>
+              <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                <a
+                  href={dukeLinks.beerMenu}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-[1.25rem] border border-white/10 px-4 py-4 text-sm text-[rgba(241,235,222,0.8)] transition hover:border-[var(--rust-500)] hover:text-[var(--gold-300)]"
+                >
+                  Open Untappd
+                </a>
+                <Link
+                  href={dukeLinks.events}
+                  className="rounded-[1.25rem] border border-white/10 px-4 py-4 text-sm text-[rgba(241,235,222,0.8)] transition hover:border-[var(--rust-500)] hover:text-[var(--gold-300)]"
+                >
+                  Weekly Events
+                </Link>
+                <Link
+                  href={dukeLinks.parties}
+                  className="rounded-[1.25rem] border border-white/10 px-4 py-4 text-sm text-[rgba(241,235,222,0.8)] transition hover:border-[var(--rust-500)] hover:text-[var(--gold-300)]"
+                >
+                  Private Parties
+                </Link>
               </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      <section className="border-b border-copper/10 bg-charcoal/30 py-6">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 text-sm text-cream/70 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <p>110 N Main St, Crystal Lake, IL 60014 • (815) 356-9980 • hello@dukesalehouse.net</p>
-          <div className="flex flex-wrap gap-3">
-            <a href={dukeLinks.phone} className="text-copper hover:text-amber">Call</a>
-            <a href={dukeLinks.email} className="text-copper hover:text-amber">Email</a>
-            <a href={dukeLinks.directions} target="_blank" rel="noopener noreferrer" className="text-copper hover:text-amber">Directions</a>
+      <section className="border-b border-white/8 bg-[#0c0b0e] py-4">
+        <div className="section-shell flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p className="kicker text-[10px] text-[var(--gold-300)]">Fast reality strip</p>
+            <p className="mt-2 text-sm text-[rgba(241,235,222,0.76)]">
+              {dukeBusiness.addressLineOne}, {dukeBusiness.addressLineTwo} |{" "}
+              {dukeBusiness.phoneDisplay} | {dukeBusiness.emailDisplay}
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-4 text-sm text-[rgba(241,235,222,0.72)]">
+            <a href={dukeLinks.phone} className="transition hover:text-[var(--gold-300)]">
+              Call
+            </a>
+            <a href={dukeLinks.email} className="transition hover:text-[var(--gold-300)]">
+              Email
+            </a>
+            <a
+              href={dukeLinks.directions}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition hover:text-[var(--gold-300)]"
+            >
+              Directions
+            </a>
+            <a
+              href={dukeLinks.reservations}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition hover:text-[var(--gold-300)]"
+            >
+              Reserve
+            </a>
           </div>
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+      <section className="py-20 sm:py-24">
+        <div className="section-shell grid gap-10 lg:grid-cols-[0.92fr_1.08fr]">
           <ScrollReveal>
-            <div>
-              <p className="text-xs uppercase tracking-[0.35em] text-copper">What changed</p>
-              <h2 className="mt-4 font-serif text-4xl text-cream">Round 2 now fixes the business paths first.</h2>
+            <div className="line-card rounded-[2rem] p-7 sm:p-8">
+              <p className="kicker text-[10px] text-[var(--gold-300)]">Why Duke&apos;s works</p>
+              <h2 className="display-serif mt-5 text-4xl leading-tight text-[var(--stone-100)] sm:text-5xl">
+                The room says yes to dinner, beer, and staying out longer.
+              </h2>
+              <p className="mt-5 text-base leading-8 text-[rgba(241,235,222,0.72)]">
+                This is not a bright family-dining site and it is not a faux-luxury tavern. Duke&apos;s
+                wins when the site feels like a Main Street room with real nightly gravity and clear
+                utility for the table.
+              </p>
             </div>
           </ScrollReveal>
           <div className="grid gap-4">
-            {serviceNotes.map((note, index) => (
-              <ScrollReveal key={note} delay={index * 100}>
-                <div className="rounded-[1.75rem] border border-copper/10 bg-card-bg/60 p-6">
-                  <p className="text-sm uppercase tracking-[0.25em] text-copper/80">0{index + 1}</p>
-                  <p className="mt-3 leading-7 text-cream/70">{note}</p>
-                </div>
+            {fastFacts.map((fact, index) => (
+              <ScrollReveal key={fact.title} delay={index * 90}>
+                <article className="line-card rounded-[1.75rem] p-6">
+                  <p className="kicker text-[10px] text-[var(--gold-300)]">
+                    0{index + 1}
+                  </p>
+                  <h3 className="display-serif mt-3 text-3xl text-[var(--stone-100)]">
+                    {fact.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-[rgba(241,235,222,0.68)]">
+                    {fact.body}
+                  </p>
+                </article>
               </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-y border-copper/10 bg-charcoal/25 py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <ScrollReveal className="max-w-3xl">
-            <p className="text-xs uppercase tracking-[0.35em] text-copper">Live energy</p>
-            <h2 className="mt-4 font-serif text-4xl text-cream">Events are back in the nav because they are part of the venue identity.</h2>
+      <section className="border-y border-white/8 bg-[#120f14] py-20 sm:py-24">
+        <div className="section-shell grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
+          <ScrollReveal>
+            <div className="overflow-hidden rounded-[2rem] border border-white/10">
+              <div className="relative aspect-[4/5] sm:aspect-[5/4]">
+                <Image
+                  src={dukeBrandAssets.hero}
+                  alt="Duke's dining room"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+              </div>
+            </div>
           </ScrollReveal>
-          <div className="mt-10 grid gap-5 lg:grid-cols-4">
-            {eventFeatures.map((event, index) => (
-              <motion.a
-                key={event.name}
-                href={event.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
-                whileHover={{ y: -8 }}
-                className="group rounded-[1.75rem] border border-copper/10 bg-dark-bg/70 p-6 transition hover:border-copper/40"
-              >
-                <p className="text-xs uppercase tracking-[0.3em] text-copper">{event.schedule}</p>
-                <h3 className="mt-4 font-serif text-2xl text-cream transition group-hover:text-copper">
-                  {event.name}
-                </h3>
-                <p className="mt-4 text-sm leading-7 text-cream/65">{event.description}</p>
-                <p className="mt-6 text-sm font-semibold text-copper">See event details</p>
-              </motion.a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+          <div className="grid gap-4">
             <ScrollReveal>
-              <div className="rounded-[2rem] border border-copper/10 bg-gradient-to-br from-card-bg/80 to-dark-bg p-8">
-                <p className="text-xs uppercase tracking-[0.35em] text-copper">Real menu structure</p>
-                <h2 className="mt-4 font-serif text-4xl text-cream">The menu section now mirrors Duke&apos;s actual public menu.</h2>
-                <p className="mt-5 max-w-xl leading-7 text-cream/70">
-                  Signature audit items are restored: Duke&apos;s Cuban, Hot Chicken Sandwich,
-                  beet salad, tofu and kim-chi, Duke&apos;s Grain Bowl, and gluten-free bun availability.
-                </p>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <Link href={dukeLinks.menu} className="rounded-full bg-copper px-5 py-3 text-sm font-bold uppercase tracking-[0.25em] text-dark-bg transition hover:bg-amber">
-                    Browse Menus
-                  </Link>
-                  <a href={dukeLinks.order} target="_blank" rel="noopener noreferrer" className="rounded-full border border-copper/40 px-5 py-3 text-sm font-bold uppercase tracking-[0.25em] text-copper transition hover:bg-copper/10">
-                    Open Order Flow
-                  </a>
-                </div>
+              <div className="paper-panel rounded-[2rem] p-7 sm:p-8">
+                <p className="kicker text-[10px] text-[#68411f]">Menu breadth</p>
+                <h2 className="display-serif mt-4 text-4xl leading-tight text-[#191411] sm:text-5xl">
+                  Built for burger people, salad people, grain-bowl people, and the beer-first table.
+                </h2>
               </div>
             </ScrollReveal>
-
-            <div className="grid gap-4 md:grid-cols-2">
-              {reviews.map((review, index) => (
-                <ScrollReveal key={review.source} delay={index * 100}>
-                  <div className="rounded-[1.6rem] border border-copper/10 bg-card-bg/55 p-6">
-                    <p className="text-sm leading-7 text-cream/70">&ldquo;{review.quote}&rdquo;</p>
-                    <p className="mt-4 text-xs uppercase tracking-[0.3em] text-copper">{review.source}</p>
-                  </div>
+            <div className="grid gap-4 md:grid-cols-3">
+              {menuPreview.map((preview, index) => (
+                <ScrollReveal key={preview.category} delay={index * 80}>
+                  <article className="rounded-[1.6rem] border border-white/10 bg-black/15 p-5">
+                    <p className="kicker text-[10px] text-[var(--gold-300)]">
+                      {preview.category}
+                    </p>
+                    <div className="mt-4 space-y-3">
+                      {preview.items.map((item) => (
+                        <p
+                          key={item}
+                          className="display-serif text-2xl leading-tight text-[var(--stone-100)]"
+                        >
+                          {item}
+                        </p>
+                      ))}
+                    </div>
+                  </article>
                 </ScrollReveal>
               ))}
             </div>
+            {menuMoments.map((moment, index) => (
+              <ScrollReveal key={moment.title} delay={index * 90}>
+                <div className="rounded-[1.6rem] border border-white/10 bg-black/10 p-6">
+                  <h3 className="display-serif text-3xl text-[var(--stone-100)]">
+                    {moment.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-[rgba(241,235,222,0.68)]">
+                    {moment.body}
+                  </p>
+                </div>
+              </ScrollReveal>
+            ))}
+            <ScrollReveal>
+              <div className="flex flex-wrap gap-3 pt-2">
+                <Link
+                  href={dukeLinks.menu}
+                  className="rounded-full bg-[var(--rust-500)] px-6 py-4 text-xs font-semibold uppercase tracking-[0.28em] text-[var(--ink-950)] transition hover:-translate-y-0.5 hover:bg-[var(--rust-600)]"
+                >
+                  See Full Menu
+                </Link>
+                <a
+                  href={dukeLinks.order}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full border border-white/14 px-6 py-4 text-xs font-semibold uppercase tracking-[0.28em] text-[rgba(241,235,222,0.82)] transition hover:border-[var(--rust-500)] hover:text-[var(--gold-300)]"
+                >
+                  Order Direct
+                </a>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
-      <section className="border-t border-copper/10 bg-charcoal/20 py-20">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8">
+      <section className="py-20 sm:py-24">
+        <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <ScrollReveal>
-            <div>
-              <p className="text-xs uppercase tracking-[0.35em] text-copper">Banquets and groups</p>
-              <h2 className="mt-4 font-serif text-4xl text-cream">Private events now have a real landing path instead of a buried mention.</h2>
+            <div className="line-card rounded-[2rem] p-7 sm:p-8">
+              <p className="kicker text-[10px] text-[var(--gold-300)]">Weekly house rhythm</p>
+              <h2 className="display-serif mt-5 text-4xl leading-tight text-[var(--stone-100)] sm:text-5xl">
+                Duke&apos;s feels alive because the calendar repeats on purpose.
+              </h2>
+              <p className="mt-5 text-base leading-8 text-[rgba(241,235,222,0.72)]">
+                Treat events like brand identity, not an afterthought. Vinyl, whiskey, live music,
+                and karaoke belong in the core story because they explain why a tavern pick becomes
+                a recurring plan.
+              </p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link
+                  href={dukeLinks.events}
+                  className="rounded-full border border-white/14 px-5 py-3 text-xs font-semibold uppercase tracking-[0.26em] text-[rgba(241,235,222,0.84)] transition hover:border-[var(--rust-500)] hover:text-[var(--gold-300)]"
+                >
+                  Open Events
+                </Link>
+                <a
+                  href={dukeLinks.reservations}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full border border-white/14 px-5 py-3 text-xs font-semibold uppercase tracking-[0.26em] text-[rgba(241,235,222,0.84)] transition hover:border-[var(--rust-500)] hover:text-[var(--gold-300)]"
+                >
+                  Reserve First
+                </a>
+              </div>
             </div>
           </ScrollReveal>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            {eventFeatures.map((event, index) => (
+              <ScrollReveal key={event.name} delay={index * 80}>
+                <a
+                  href={event.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group line-card block rounded-[1.75rem] p-6 transition hover:-translate-y-1"
+                >
+                  <p className="kicker text-[10px] text-[var(--gold-300)]">
+                    {event.schedule}
+                  </p>
+                  <h3 className="display-serif mt-3 text-3xl text-[var(--stone-100)] transition group-hover:text-[var(--rust-600)]">
+                    {event.name}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-[rgba(241,235,222,0.68)]">
+                    {event.description}
+                  </p>
+                </a>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-white/8 bg-[#130f15] py-20 sm:py-24">
+        <div className="section-shell grid gap-10 lg:grid-cols-[1fr_1fr]">
+          <ScrollReveal>
+            <div className="paper-panel rounded-[2rem] p-7 sm:p-8">
+              <p className="kicker text-[10px] text-[#68411f]">Private parties</p>
+              <h2 className="display-serif mt-4 text-4xl leading-tight text-[#191411] sm:text-5xl">
+                Plan the group night without turning Duke&apos;s into a banquet-hall fantasy.
+              </h2>
+              <p className="mt-4 text-base leading-8 text-[#423427]">
+                Keep the pitch practical: direct contact, banquet-menu handoff, and local group use
+                cases that still fit the tavern identity.
+              </p>
+              <div className="mt-7 space-y-3 text-sm leading-7 text-[#4b3a2b]">
+                {privatePartyDetails.map((detail) => (
+                  <p key={detail}>{detail}</p>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+
           <div className="grid gap-4">
-            {privateEventDetails.map((detail, index) => (
-              <ScrollReveal key={detail} delay={index * 120}>
-                <div className="rounded-[1.6rem] border border-copper/10 bg-dark-bg/70 p-5">
-                  <p className="leading-7 text-cream/70">{detail}</p>
+            {partyUseCases.map((useCase, index) => (
+              <ScrollReveal key={useCase} delay={index * 80}>
+                <div className="line-card rounded-[1.6rem] p-5">
+                  <p className="display-serif text-3xl text-[var(--stone-100)]">
+                    {useCase}
+                  </p>
                 </div>
               </ScrollReveal>
             ))}
-            <div className="flex flex-wrap gap-3 pt-2">
-              <Link href={dukeLinks.parties} className="rounded-full bg-copper px-5 py-3 text-sm font-bold uppercase tracking-[0.25em] text-dark-bg transition hover:bg-amber">
-                Book a Party
-              </Link>
-              <a href={dukeLinks.email} className="rounded-full border border-copper/40 px-5 py-3 text-sm font-bold uppercase tracking-[0.25em] text-copper transition hover:bg-copper/10">
-                Email Events
-              </a>
+            <ScrollReveal>
+              <div className="flex flex-wrap gap-3 pt-2">
+                <Link
+                  href={dukeLinks.parties}
+                  className="rounded-full bg-[var(--rust-500)] px-6 py-4 text-xs font-semibold uppercase tracking-[0.28em] text-[var(--ink-950)] transition hover:-translate-y-0.5 hover:bg-[var(--rust-600)]"
+                >
+                  Plan a Party
+                </Link>
+                <a
+                  href={dukeLinks.email}
+                  className="rounded-full border border-white/14 px-6 py-4 text-xs font-semibold uppercase tracking-[0.28em] text-[rgba(241,235,222,0.82)] transition hover:border-[var(--rust-500)] hover:text-[var(--gold-300)]"
+                >
+                  Email the House
+                </a>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 sm:py-24">
+        <div className="section-shell grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+          <ScrollReveal>
+            <div className="line-card rounded-[2rem] p-7 sm:p-8">
+              <p className="kicker text-[10px] text-[var(--gold-300)]">Downtown Crystal Lake</p>
+              <h2 className="display-serif mt-5 text-4xl leading-tight text-[var(--stone-100)] sm:text-5xl">
+                Main Street is part of the product, not a footnote.
+              </h2>
+              <p className="mt-5 text-base leading-8 text-[rgba(241,235,222,0.72)]">
+                Duke&apos;s should feel specific to the downtown block it lives on. The site gets
+                stronger when it explains the room as a Main Street meet-up point instead of a
+                generic tavern floating in nowhere.
+              </p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link
+                  href={dukeLinks.contact}
+                  className="rounded-full border border-white/14 px-5 py-3 text-xs font-semibold uppercase tracking-[0.26em] text-[rgba(241,235,222,0.84)] transition hover:border-[var(--rust-500)] hover:text-[var(--gold-300)]"
+                >
+                  Visit Duke&apos;s
+                </Link>
+                <a
+                  href={dukeLinks.directions}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full border border-white/14 px-5 py-3 text-xs font-semibold uppercase tracking-[0.26em] text-[rgba(241,235,222,0.84)] transition hover:border-[var(--rust-500)] hover:text-[var(--gold-300)]"
+                >
+                  Get Directions
+                </a>
+              </div>
             </div>
+          </ScrollReveal>
+
+          <div className="grid gap-4">
+            {neighborhoodNotes.map((note, index) => (
+              <ScrollReveal key={note.title} delay={index * 90}>
+                <article className="line-card rounded-[1.6rem] p-6">
+                  <p className="display-serif text-3xl text-[var(--stone-100)]">
+                    {note.title}
+                  </p>
+                  <p className="mt-3 text-sm leading-7 text-[rgba(241,235,222,0.68)]">
+                    {note.body}
+                  </p>
+                </article>
+              </ScrollReveal>
+            ))}
           </div>
         </div>
       </section>

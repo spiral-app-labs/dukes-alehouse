@@ -1,6 +1,12 @@
 export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://dukes-alehouse.vercel.app";
 
+export const dukeBrandAssets = {
+  logo: "https://s3.us-east-1.amazonaws.com/securetree.com/Dukes+Alehouse+and+Kitchen/nop/Dukes-Logo.png",
+  hero:
+    "https://s3.us-east-1.amazonaws.com/securetree.com/Dukes+Alehouse+and+Kitchen/nop/Dukes-Hero-BG.jpg",
+};
+
 export const dukeLinks = {
   home: "/",
   menu: "/menu",
@@ -9,8 +15,7 @@ export const dukeLinks = {
   events: "/events",
   beer: "/beer",
   parties: "/book-a-party",
-  order:
-    "https://www.thedukeabides.com/popmenu-order/dukes-alehouse-and-kitchen/menus/main-menu",
+  order: "https://order.toasttab.com/online/dukes-alehouse-and-kitchen",
   reservations: "https://www.exploretock.com/dukesalehouse",
   giftCards: "https://dukes.securetree.com/",
   beerMenu: "https://untappd.com/v/dukes-alehouse-and-kitchen/7677",
@@ -22,46 +27,133 @@ export const dukeLinks = {
   facebook: "https://www.facebook.com/dukesalehouse",
   instagram: "https://www.instagram.com/dukesalehouse",
   yelp: "https://www.yelp.com/biz/dukes-alehouse-and-kitchen-crystal-lake",
+  officialAbout: "https://www.thedukeabides.com/about",
+  reservationsHub: "https://www.thedukeabides.com/reservations",
+  parking:
+    "https://www.crystallake.org/our-community/resident-information/downtown-and-commuter-parking",
+  downtown:
+    "https://downtowncl.org/places/downtown-crystal-lake-main-street/",
+};
+
+export const dukeBusiness = {
+  name: "Duke's Alehouse & Kitchen",
+  shortName: "Duke's",
+  city: "Crystal Lake, Illinois",
+  addressLineOne: "110 N Main St",
+  addressLineTwo: "Crystal Lake, IL 60014",
+  phoneDisplay: "(815) 356-9980",
+  emailDisplay: "hello@dukesalehouse.net",
+  heroTitle:
+    "The downtown tavern for dinner groups, beer people, and nights that turn into plans.",
+  heroBody:
+    "Duke's keeps Main Street loud in the right way: direct Toast ordering, Tock reservations, a live Untappd handoff, and a kitchen that works for burgers, grain bowls, vegans, vegetarians, and gluten-free regulars without flattening the room into generic pub copy.",
+  utilityLine:
+    "Order direct. Reserve fast. Check the taps live. Contact the house when the table gets bigger.",
 };
 
 export const primaryNav = [
   { href: dukeLinks.home, label: "Home" },
-  { href: dukeLinks.menu, label: "Menus" },
+  { href: dukeLinks.menu, label: "Menu" },
+  { href: dukeLinks.beer, label: "Beer + Drinks" },
   { href: dukeLinks.events, label: "Events" },
-  { href: dukeLinks.beer, label: "Beer" },
-  { href: dukeLinks.parties, label: "Book a Party" },
+  { href: dukeLinks.parties, label: "Private Parties" },
   { href: dukeLinks.about, label: "About" },
-  { href: dukeLinks.contact, label: "Contact" },
+  { href: dukeLinks.contact, label: "Visit" },
 ];
 
-export const heroStats = [
-  { value: "140+", label: "Craft beers & Belgian ales" },
-  { value: "21", label: "Rotating taps" },
-  { value: "2008", label: "Downtown Crystal Lake mainstay" },
-  { value: "7", label: "Days of music, specials, or events in rotation" },
+export const heroChips = [
+  "Downtown Crystal Lake tavern",
+  "Toast ordering",
+  "Tock reservations",
+  "Untappd live taps",
+  "Weekly room rhythm",
+  "Mixed-group menu",
 ];
 
-export const serviceNotes = [
-  "Order direct through Toast-style Popmenu ordering. We did not verify DoorDash or Uber Eats listings, so this site points you to Duke's official ordering path.",
-  "Reservations run through Tock. For groups of 9+, Duke's asks guests to email hello@dukesalehouse.net or call the restaurant directly.",
-  "Kitchen and bar hours are split. Tuesday is not listed as open in Duke's live event pages, so this site keeps Tuesday closed.",
+export const fastFacts = [
+  {
+    title: "Beer-first identity",
+    body: "Belgian leaning, draft board always moving, and a live Untappd handoff instead of stale tap-copy promises.",
+  },
+  {
+    title: "Useful for mixed groups",
+    body: "Burgers, hot sandwiches, grain bowls, vegan options, vegetarian dishes, and gluten-free lanes all show up on the same menu.",
+  },
+  {
+    title: "A room with a weekly pulse",
+    body: "Hi-Fi vinyl nights, Whiskey Wednesdays, Thursday live music, and Friday karaoke give Duke's a repeating reason to choose it over another pub stop.",
+  },
 ];
 
 export const hours = [
   {
-    days: "Monday, Wednesday, Thursday, Sunday",
+    days: "Monday",
     kitchen: "12:00pm - 8:00pm",
     bar: "12:00pm - 12:00am",
-  },
-  {
-    days: "Friday, Saturday",
-    kitchen: "12:00pm - 9:00pm",
-    bar: "12:00pm - 1:00am",
   },
   {
     days: "Tuesday",
     kitchen: "Closed",
     bar: "Closed",
+  },
+  {
+    days: "Wednesday",
+    kitchen: "12:00pm - 8:00pm",
+    bar: "12:00pm - 12:00am",
+  },
+  {
+    days: "Thursday",
+    kitchen: "12:00pm - 8:00pm",
+    bar: "12:00pm - 12:00am",
+  },
+  {
+    days: "Friday",
+    kitchen: "12:00pm - 9:00pm",
+    bar: "12:00pm - 1:00am",
+  },
+  {
+    days: "Saturday",
+    kitchen: "12:00pm - 9:00pm",
+    bar: "12:00pm - 1:00am",
+  },
+  {
+    days: "Sunday",
+    kitchen: "12:00pm - 8:00pm",
+    bar: "12:00pm - 12:00am",
+  },
+];
+
+export const menuMoments = [
+  {
+    title: "More than bar-food autopilot",
+    body: "Duke's works when one table wants burgers, another wants tofu or cauliflower, and somebody else needs gluten-free options without the kitchen feeling like it split into two restaurants.",
+  },
+  {
+    title: "House names people recognize",
+    body: "The menu has real Duke's signatures, not generic alehouse filler: Duke's Burger, Duke's Cuban, Duke's Chicken, grain bowls, beet salad, and Korean fried cauliflower all give the room its own shape.",
+  },
+  {
+    title: "Direct ordering stays easy",
+    body: "The menu page should help people choose fast, then hand them directly to Toast instead of sending them hunting through the footer or third-party apps.",
+  },
+];
+
+export const menuPreview = [
+  {
+    category: "Appetizers",
+    items: ["Steamed Mussels", "Tempura Green Beans", "Cheese Curds"],
+  },
+  {
+    category: "Burgers + Sandwiches",
+    items: ["Duke's Burger", "Duke's Cuban", "Hot Chicken Sandwich"],
+  },
+  {
+    category: "Dinner Plates",
+    items: [
+      "Duke's Grain Bowl",
+      "Pan-Roasted Whitefish",
+      "Korean Fried Cauliflower",
+    ],
   },
 ];
 
@@ -69,7 +161,7 @@ export const menuSections = [
   {
     slug: "appetizers",
     title: "Appetizers",
-    note: "Real Duke's starters from the public 2021 menu PDF.",
+    note: "Open with the share plates and beer snacks that make the second round feel inevitable.",
     items: [
       {
         name: "Steamed Mussels",
@@ -104,7 +196,7 @@ export const menuSections = [
   {
     slug: "salads",
     title: "Salads",
-    note: "Salads can add grilled chicken for $6 or pan-roasted whitefish for $10.",
+    note: "Fresh enough to reset the table, still rooted in the house flavor profile.",
     items: [
       {
         name: "Alehouse Salad",
@@ -135,7 +227,7 @@ export const menuSections = [
   {
     slug: "burgers",
     title: "Burgers",
-    note: "Served with a side. Rosie's gluten-free burger buns available for $2 more.",
+    note: "The burger lane is real, with Rosie's gluten-free buns available where noted.",
     items: [
       {
         name: "Duke's Burger",
@@ -166,7 +258,7 @@ export const menuSections = [
   {
     slug: "sandwiches",
     title: "Sandwiches",
-    note: "Served with a side. Duke's signatures called out in the audit are included here.",
+    note: "House names, hot sandwiches, and tavern signatures that regulars actually order.",
     items: [
       {
         name: "Duke's Chicken",
@@ -203,7 +295,7 @@ export const menuSections = [
   {
     slug: "entrees",
     title: "Entrees",
-    note: "Comfort food plus vegan and gluten-free standouts from the live menu PDF.",
+    note: "Kitchen depth for tables that want something past burgers and fries.",
     items: [
       {
         name: "Duke's Grain Bowl",
@@ -240,7 +332,7 @@ export const menuSections = [
   {
     slug: "desserts",
     title: "Desserts",
-    note: "Current staples called out in reviews and the public PDF.",
+    note: "Short dessert finish, still leaving room for gluten-free and vegan tables.",
     items: [
       {
         name: "Carrot Cake",
@@ -264,73 +356,89 @@ export const menuSections = [
 
 export const beerHighlights = [
   {
-    title: "Rotating Drafts",
-    description:
-      "Untappd currently shows Duke's draft list carrying taps like Gumballhead, Allagash White, Delirium Tremens, Guinness, Son of Juice, Melvin IPA, Juicy Bits, and Drekker's Braaaaaaaains.",
+    title: "The live draft board belongs on Untappd",
+    body: "Duke's beer credibility works because the board moves. The site should sell that reality and then hand people to the live list instead of pretending the taps stay frozen.",
   },
   {
-    title: "Belgian Bench",
-    description:
-      "The bottle list and Duke's long-running positioning both lean into Belgian ales, with Chimay, Duvel, Rochefort, St. Bernardus, and other staples called out across public menus and reviews.",
+    title: "Belgian roots still matter",
+    body: "The public Duke's identity consistently leans Belgian, which gives the room a sharper beer point of view than a generic craft-beer bar.",
   },
   {
-    title: "Cocktails and THC Specials",
-    description:
-      "Current event listings promote $7 Old Fashioneds on Whiskey Wednesdays and THC cocktails on Monday vinyl nights, so the drinks program extends past beer.",
+    title: "Drinks go past beer",
+    body: "Whiskey Wednesdays and Monday-night THC cocktail promos make it clear the bar program extends beyond pints, even when beer leads the brand.",
   },
 ];
 
 export const eventFeatures = [
   {
-    name: "Whiskey Wednesdays",
-    schedule: "Weekly Wednesday",
+    name: "Hi-Fi Vinyl Nights",
+    schedule: "Monday nights",
     description:
-      "$3 whiskey pours and $7 Old Fashioneds in the tavern.",
+      "Bring-your-own-record nights with full kitchen service and Monday drink specials.",
+    href: "https://www.thedukeabides.com/events/lets-get-hi-fi-vinyl-nights-at-dukes",
+  },
+  {
+    name: "Whiskey Wednesdays",
+    schedule: "Wednesday nights",
+    description:
+      "Public event pages promote whiskey pours and Old Fashioned specials midweek.",
     href: "https://www.thedukeabides.com/events/whiskey-wednesdays",
   },
   {
     name: "Live Music with Jim and Friends",
-    schedule: "Weekly Thursday · 6pm to 8pm",
+    schedule: "Thursday nights",
     description:
-      "A regular Thursday music anchor with local musicians on Duke's stage.",
+      "A recurring live-music anchor that turns dinner into a neighborhood plan.",
     href: "https://www.thedukeabides.com/events/live-music-with-jim-and-friends",
   },
   {
     name: "Karaoke",
-    schedule: "Weekly Friday · 9pm to 1am",
+    schedule: "Friday nights",
     description:
-      "Late-night karaoke backed by food, cocktails, and the full bar.",
+      "Late-night karaoke keeps the room moving after the dinner rush lets out.",
     href: "https://www.thedukeabides.com/events/dukes-karaoke-33006043",
   },
+];
+
+export const privatePartyDetails = [
+  "Groups of 9+ are still routed to the house directly by phone or email.",
+  "The banquet page and menu are the source-backed handoff when dinner turns into a larger plan.",
+  "The tone should stay local and practical: birthdays, work hangs, rehearsal-adjacent dinners, and neighborhood group nights.",
+];
+
+export const partyUseCases = [
+  "Birthday dinners that want a room with some noise left in it",
+  "Work gatherings that still need a real menu and a serious bar",
+  "Rehearsal-adjacent dinners that fit better in a tavern than a banquet hall",
+  "Local groups that want Main Street energy without formal-venue friction",
+];
+
+export const neighborhoodNotes = [
   {
-    name: "Hi-Fi Vinyl Nights",
-    schedule: "Weekly Monday · 6pm to 9pm",
-    description:
-      "Bring-your-own-record nights with full kitchen service and special drinks.",
-    href: "https://www.thedukeabides.com/events/lets-get-hi-fi-vinyl-nights-at-dukes",
+    title: "Main Street matters here",
+    body: "Duke's is a downtown Crystal Lake choice, not a highway stop. Meeting on Main Street and staying late is part of the social logic of the room.",
+  },
+  {
+    title: "Directions stay practical",
+    body: "The site should keep directions, call, and reservation paths visible so a plan can close fast on mobile.",
+  },
+  {
+    title: "Parking context should stay factual",
+    body: "Downtown Crystal Lake publishes parking guidance separately, so the site can link guests there without inventing proprietary lot claims.",
   },
 ];
 
-export const privateEventDetails = [
-  "Groups of 9+ are routed to hello@dukesalehouse.net or the main phone line per Tock.",
-  "Duke's banquet page publishes a dedicated banquet menu PDF and calls out mix-and-match appetizers, entrees, and desserts.",
-  "The private event pitch should feel like downtown Crystal Lake hospitality, not generic catering copy.",
+export const aboutNotes = [
+  "Duke's is strongest when it feels like a room you pick because beer, dinner, and a night out can all happen in the same place.",
+  "The site should never describe Duke's like a polished gastropub concept deck. It should read like a downtown regular already knows why the room works.",
+  "Local proof beats slogans: Main Street location, direct ordering, Tock reservations, recurring weekly nights, and an actual mixed-group menu are the right building blocks.",
 ];
 
-export const reviews = [
-  {
-    quote:
-      "There are 21 beers on tap and Duke's has you covered whether you want a craft brew at the bar or a more upscale dining experience.",
-    source: "Daily Herald feature",
-  },
-  {
-    quote:
-      "The menu is built for vegans, vegetarians, gluten-free guests, and burger people without feeling like anyone settled.",
-    source: "Recent review trend",
-  },
-  {
-    quote:
-      "Warm, cozy, and casual with local sourcing and a serious beer list remains the core Duke's identity.",
-    source: "Public venue descriptions",
-  },
+export const footerActionLinks = [
+  { href: dukeLinks.order, label: "Order Online", external: true },
+  { href: dukeLinks.reservations, label: "Reserve on Tock", external: true },
+  { href: dukeLinks.menu, label: "See Menu", external: false },
+  { href: dukeLinks.beerMenu, label: "Open Untappd", external: true },
+  { href: dukeLinks.parties, label: "Plan a Party", external: false },
+  { href: dukeLinks.giftCards, label: "Gift Cards", external: true },
 ];

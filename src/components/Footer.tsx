@@ -1,133 +1,142 @@
 import Link from "next/link";
-import { dukeLinks, hours, primaryNav } from "@/lib/siteData";
+import Image from "next/image";
+import {
+  dukeBrandAssets,
+  dukeBusiness,
+  dukeLinks,
+  footerActionLinks,
+  hours,
+  primaryNav,
+} from "@/lib/siteData";
 
 export default function Footer() {
   return (
-    <footer className="bg-charcoal border-t border-copper/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Brand */}
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full bg-copper flex items-center justify-center text-charcoal font-serif font-bold text-xl">
-                D
-              </div>
-              <div>
-                <span className="text-xl font-serif font-bold text-cream">
-                  Duke&apos;s
-                </span>
-                <span className="block text-[10px] uppercase tracking-[0.2em] text-copper/80">
-                  Alehouse &amp; Kitchen
-                </span>
-              </div>
-            </div>
-            <p className="text-cream/60 text-sm leading-relaxed">
-              Downtown Crystal Lake gastropub with local sourcing, a deep Belgian and craft beer bench,
-              private events, and a weekly live-music rhythm.
+    <footer className="border-t border-white/10 bg-[#0a090c]">
+      <div className="section-shell py-16">
+        <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="line-card poster-shadow overflow-hidden rounded-[2rem] p-7 sm:p-9">
+            <Image
+              src={dukeBrandAssets.logo}
+              alt={dukeBusiness.name}
+              width={220}
+              height={82}
+              className="h-14 w-auto"
+            />
+            <p className="mt-5 max-w-2xl text-base leading-8 text-[rgba(241,235,222,0.72)]">
+              Duke&apos;s is the Main Street move when dinner, drinks, and a real night out need to
+              happen in the same room.
             </p>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-copper font-serif text-lg mb-4">Explore</h3>
-            <div className="flex flex-col gap-2">
-              {primaryNav.map((link) => (
-                <Link key={link.href} href={link.href} className="text-cream/60 hover:text-copper transition-colors text-sm">
-                  {link.label}
-                </Link>
-              ))}
+            <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {footerActionLinks.map((link) =>
+                link.external ? (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-[1.25rem] border border-white/10 px-4 py-4 text-sm text-[rgba(241,235,222,0.8)] transition hover:border-[var(--rust-500)] hover:text-[var(--gold-300)]"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    className="rounded-[1.25rem] border border-white/10 px-4 py-4 text-sm text-[rgba(241,235,222,0.8)] transition hover:border-[var(--rust-500)] hover:text-[var(--gold-300)]"
+                  >
+                    {link.label}
+                  </Link>
+                )
+              )}
             </div>
           </div>
 
-          {/* Conversion */}
-          <div>
-            <h3 className="text-copper font-serif text-lg mb-4">Plan Your Visit</h3>
-            <div className="flex flex-col gap-3 text-sm">
-              <a href={dukeLinks.order} target="_blank" rel="noopener noreferrer" className="text-cream/60 hover:text-copper transition-colors">
-                Order Online
-              </a>
-              <a href={dukeLinks.reservations} target="_blank" rel="noopener noreferrer" className="text-cream/60 hover:text-copper transition-colors">
-                Reservations
-              </a>
-              <a href={dukeLinks.beerMenu} target="_blank" rel="noopener noreferrer" className="text-cream/60 hover:text-copper transition-colors">
-                Live Beer Menu
-              </a>
-              <a href={dukeLinks.banquets} target="_blank" rel="noopener noreferrer" className="text-cream/60 hover:text-copper transition-colors">
-                Banquet Menu PDF
-              </a>
-              <a href={dukeLinks.giftCards} target="_blank" rel="noopener noreferrer" className="text-cream/60 hover:text-copper transition-colors">
-                Gift Cards
-              </a>
-            </div>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h3 className="text-copper font-serif text-lg mb-4">Contact</h3>
-            <div className="flex flex-col gap-3 text-sm text-cream/60">
+          <div className="grid gap-6">
+            <div className="line-card rounded-[2rem] p-7">
+              <p className="kicker text-[10px] text-[var(--gold-300)]">Visit the house</p>
               <a
                 href={dukeLinks.directions}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-copper transition-colors"
+                className="mt-4 block display-serif text-4xl text-[var(--stone-100)] transition hover:text-[var(--rust-600)]"
               >
-                110 N Main St<br />Crystal Lake, IL 60014
+                {dukeBusiness.addressLineOne}
+                <br />
+                {dukeBusiness.addressLineTwo}
               </a>
-              <a href={dukeLinks.phone} className="hover:text-copper transition-colors">
-                (815) 356-9980
-              </a>
-              <a href={dukeLinks.email} className="hover:text-copper transition-colors">
-                hello@dukesalehouse.net
-              </a>
-              <div className="pt-2 text-xs text-cream/50">
-                {hours.map((entry) => (
-                  <p key={entry.days}>
-                    {entry.days}: kitchen {entry.kitchen} · bar {entry.bar}
-                  </p>
-                ))}
+              <div className="mt-5 flex flex-col gap-2 text-sm text-[rgba(241,235,222,0.7)]">
+                <a href={dukeLinks.phone} className="transition hover:text-[var(--gold-300)]">
+                  {dukeBusiness.phoneDisplay}
+                </a>
+                <a href={dukeLinks.email} className="transition hover:text-[var(--gold-300)]">
+                  {dukeBusiness.emailDisplay}
+                </a>
               </div>
             </div>
-            {/* Social placeholder */}
-            <div className="flex gap-4 mt-6">
-              <a
-                href={dukeLinks.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-copper/10 border border-copper/30 flex items-center justify-center text-copper hover:bg-copper hover:text-charcoal transition-all"
-                aria-label="Facebook"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-              </a>
-              <a
-                href={dukeLinks.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-copper/10 border border-copper/30 flex items-center justify-center text-copper hover:bg-copper hover:text-charcoal transition-all"
-                aria-label="Instagram"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-              </a>
-              <a
-                href={dukeLinks.yelp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-copper/10 border border-copper/30 flex items-center justify-center text-copper hover:bg-copper hover:text-charcoal transition-all"
-                aria-label="Yelp"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.271 10.54c-.238-.198-.532-.296-.882-.296-.31 0-.554.08-.731.237-.177.158-.266.37-.266.636 0 .253.089.458.266.616.178.158.421.237.731.237.35 0 .644-.098.882-.296.237-.197.356-.44.356-.729 0-.289-.119-.532-.356-.405zM20.904 14.403l-3.563-1.391c-.35-.138-.658-.169-.925-.094-.267.075-.463.244-.588.506l-1.794 3.75c-.125.263-.131.513-.019.75.113.238.313.388.6.45l4.144.888c.275.063.519.013.731-.15.213-.163.319-.388.319-.675 0-.088-.013-.175-.037-.263l-.75-3c-.063-.25-.188-.45-.375-.6-.188-.15-.394-.2-.619-.15l.875.35c-.025-.138-.087-.263-.188-.375zM10.35 13.403c.35.138.658.169.925.094.267-.075.463-.244.588-.506l1.794-3.75c.125-.263.131-.513.019-.75-.113-.238-.313-.388-.6-.45l-4.144-.888c-.275-.063-.519-.013-.731.15-.213.163-.319.388-.319.675 0 .088.013.175.037.263l.75 3c.063.25.188.45.375.6.188.15.394.2.619.15l-.875-.35c.025.138.087.263.188.375l3.375 1.387z"/></svg>
-              </a>
+
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="line-card rounded-[2rem] p-7">
+                <p className="kicker text-[10px] text-[var(--gold-300)]">Hours</p>
+                <div className="mt-5 space-y-3 text-sm text-[rgba(241,235,222,0.7)]">
+                  {hours.map((entry) => (
+                    <div key={entry.days} className="border-b border-white/8 pb-3 last:border-b-0 last:pb-0">
+                      <p className="font-semibold text-[rgba(241,235,222,0.86)]">
+                        {entry.days}
+                      </p>
+                      <p>Kitchen: {entry.kitchen}</p>
+                      <p>Bar: {entry.bar}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="line-card rounded-[2rem] p-7">
+                <p className="kicker text-[10px] text-[var(--gold-300)]">Navigate</p>
+                <div className="mt-5 flex flex-col gap-3 text-sm text-[rgba(241,235,222,0.72)]">
+                  {primaryNav.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="transition hover:text-[var(--gold-300)]"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                  <a
+                    href={dukeLinks.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition hover:text-[var(--gold-300)]"
+                  >
+                    Facebook
+                  </a>
+                  <a
+                    href={dukeLinks.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition hover:text-[var(--gold-300)]"
+                  >
+                    Instagram
+                  </a>
+                  <a
+                    href={dukeLinks.yelp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition hover:text-[var(--gold-300)]"
+                  >
+                    Yelp
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="mt-12 pt-8 border-t border-copper/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-cream/40 text-xs">
-            &copy; {new Date().getFullYear()} Duke&apos;s Alehouse &amp; Kitchen. All rights reserved.
+        <div className="mt-10 flex flex-col gap-3 border-t border-white/8 pt-6 text-xs text-[rgba(241,235,222,0.46)] sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            {dukeBusiness.name} | {dukeBusiness.city}
           </p>
-          <p className="text-cream/30 text-xs">
-            Order direct, reserve on Tock, or email private events at hello@dukesalehouse.net
-          </p>
+          <p>Toast ordering, Tock reservations, live Untappd board, and direct private-party contact.</p>
         </div>
       </div>
     </footer>

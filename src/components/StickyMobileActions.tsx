@@ -3,33 +3,39 @@
 import { usePathname } from "next/navigation";
 import { dukeLinks } from "@/lib/siteData";
 
-const hiddenRoutes = new Set([dukeLinks.contact]);
-
 export default function StickyMobileActions() {
   const pathname = usePathname();
 
-  if (hiddenRoutes.has(pathname)) {
+  if (pathname === dukeLinks.contact) {
     return null;
   }
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-50 border-t border-copper/15 bg-dark-bg/95 px-4 py-3 backdrop-blur-xl xl:hidden">
-      <div className="mx-auto grid max-w-5xl grid-cols-2 gap-3">
+    <div className="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-[#09080b]/94 px-4 py-3 backdrop-blur-xl xl:hidden">
+      <div className="mx-auto grid max-w-5xl grid-cols-3 gap-3">
         <a
           href={dukeLinks.order}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-full bg-copper px-4 py-3 text-center text-xs font-bold uppercase tracking-[0.25em] text-dark-bg"
+          className="rounded-full bg-[var(--rust-500)] px-3 py-3 text-center text-[10px] font-semibold uppercase tracking-[0.24em] text-[var(--ink-950)]"
         >
-          Order Online
+          Order
         </a>
         <a
           href={dukeLinks.reservations}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-full border border-copper/40 px-4 py-3 text-center text-xs font-bold uppercase tracking-[0.25em] text-copper"
+          className="rounded-full border border-white/12 px-3 py-3 text-center text-[10px] font-semibold uppercase tracking-[0.24em] text-[rgba(241,235,222,0.86)]"
         >
-          Reservations
+          Reserve
+        </a>
+        <a
+          href={dukeLinks.beerMenu}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="rounded-full border border-white/12 px-3 py-3 text-center text-[10px] font-semibold uppercase tracking-[0.24em] text-[rgba(241,235,222,0.7)]"
+        >
+          Beer List
         </a>
       </div>
     </div>
