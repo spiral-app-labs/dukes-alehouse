@@ -12,8 +12,8 @@ export default function ContactPage() {
               Directions, split hours, direct contact, and the fastest path to making the plan real.
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-[rgba(241,235,222,0.74)]">
-              This page should finish the decision. Keep every practical path visible and keep the
-              room-specific detail stronger than generic restaurant utility copy.
+              Everything practical stays here on purpose: direct contact, downtown arrival context,
+              kitchen-versus-bar hours, gift cards, and the fastest way to close the plan.
             </p>
           </ScrollReveal>
         </div>

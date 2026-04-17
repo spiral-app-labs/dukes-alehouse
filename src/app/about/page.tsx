@@ -11,7 +11,7 @@ export default function AboutPage() {
             <div>
               <p className="kicker text-[11px] text-[var(--gold-300)]">About the room</p>
               <h1 className="display-serif mt-5 max-w-4xl text-5xl leading-[0.95] text-[var(--stone-100)] md:text-6xl lg:text-7xl">
-                Duke&apos;s should read like a downtown regular already knows why it works.
+                Duke&apos;s reads best when the room, the block, and the weekly pull all show up together.
               </h1>
               <p className="mt-6 max-w-3xl text-lg leading-8 text-[rgba(241,235,222,0.74)]">
                 The story is not mythology. It is Main Street location, a beer-first bar program, a
@@ -57,7 +57,7 @@ export default function AboutPage() {
             <div>
               <p className="kicker text-[10px] text-[var(--gold-300)]">Close the plan</p>
               <h2 className="display-serif mt-4 text-4xl text-[var(--stone-100)] sm:text-5xl">
-                When the room sounds right, the next move should still be practical.
+                Once the room sounds right, the next move is still simple.
               </h2>
             </div>
           </ScrollReveal>

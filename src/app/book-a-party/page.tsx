@@ -9,7 +9,7 @@ export default function BookAPartyPage() {
           <ScrollReveal>
             <p className="kicker text-[11px] text-[var(--gold-300)]">Private parties</p>
             <h1 className="display-serif mt-5 max-w-5xl text-5xl leading-[0.95] text-[var(--stone-100)] md:text-6xl lg:text-7xl">
-              Group dinners should feel easy to start and still sound like Duke&apos;s.
+              Group dinners should feel easy to start and still feel like a night at Duke&apos;s.
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-[rgba(241,235,222,0.74)]">
               Sell the local, practical cases first. Keep the contact flow direct. Let the banquet

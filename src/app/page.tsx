@@ -10,6 +10,8 @@ import {
   dukeLinks,
   eventFeatures,
   fastFacts,
+  heroServiceMoments,
+  heroUtilityNotes,
   heroChips,
   menuMoments,
   menuPreview,
@@ -92,18 +94,24 @@ export default function HomePage() {
                 ))}
               </div>
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-[1.5rem] border border-white/10 bg-black/15 p-5">
-                  <p className="kicker text-[10px] text-[var(--gold-300)]">Primary path</p>
-                  <p className="display-serif mt-3 text-3xl text-[var(--stone-100)]">
-                    Toast for takeout, Tock for the table.
-                  </p>
-                </div>
-                <div className="rounded-[1.5rem] border border-white/10 bg-black/15 p-5">
-                  <p className="kicker text-[10px] text-[var(--gold-300)]">Tonight logic</p>
-                  <p className="display-serif mt-3 text-3xl text-[var(--stone-100)]">
-                    Beer board, dinner order, then the room takes over.
-                  </p>
-                </div>
+                {heroServiceMoments.map((moment) => (
+                  <div key={moment.label} className="rounded-[1.5rem] border border-white/10 bg-black/15 p-5">
+                    <p className="kicker text-[10px] text-[var(--gold-300)]">{moment.label}</p>
+                    <p className="display-serif mt-3 text-3xl text-[var(--stone-100)]">
+                      {moment.title}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                {heroUtilityNotes.map((note) => (
+                  <div
+                    key={note}
+                    className="rounded-[1.25rem] border border-white/10 bg-black/10 px-4 py-4 text-sm text-[rgba(241,235,222,0.72)]"
+                  >
+                    {note}
+                  </div>
+                ))}
               </div>
               <div className="mt-5 grid gap-3 sm:grid-cols-3">
                 <a
@@ -177,9 +185,9 @@ export default function HomePage() {
                 The room says yes to dinner, beer, and staying out longer.
               </h2>
               <p className="mt-5 text-base leading-8 text-[rgba(241,235,222,0.72)]">
-                This is not a bright family-dining site and it is not a faux-luxury tavern. Duke&apos;s
-                wins when the site feels like a Main Street room with real nightly gravity and clear
-                utility for the table.
+                Duke&apos;s lands when the first-time guest sees the same things the regular already
+                knows: a beer-first bar, enough menu range for a mixed table, and a downtown room
+                with a weekly pulse that keeps people coming back.
               </p>
             </div>
           </ScrollReveal>
@@ -206,28 +214,31 @@ export default function HomePage() {
       <section className="border-y border-white/8 bg-[#120f14] py-20 sm:py-24">
         <div className="section-shell grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
           <ScrollReveal>
-            <div className="overflow-hidden rounded-[2rem] border border-white/10">
-              <div className="relative aspect-[4/5] sm:aspect-[5/4]">
-                <Image
-                  src={dukeBrandAssets.hero}
-                  alt="Duke's dining room"
-                  fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+            <div className="paper-panel rounded-[2rem] p-7 sm:p-8">
+              <p className="kicker text-[10px] text-[#68411f]">Why mixed groups land here</p>
+              <h2 className="display-serif mt-4 text-4xl leading-tight text-[#191411] sm:text-5xl">
+                Burgers for one seat, grain bowls for another, and enough range to keep the whole
+                table from negotiating.
+              </h2>
+              <div className="mt-6 grid gap-4 md:grid-cols-2">
+                <div className="rounded-[1.5rem] border border-black/10 bg-white/30 p-5">
+                  <p className="kicker text-[10px] text-[#68411f]">House signatures</p>
+                  <p className="mt-3 text-sm leading-7 text-[#423427]">
+                    Duke&apos;s Burger, Duke&apos;s Cuban, Duke&apos;s Chicken, Korean fried
+                    cauliflower, and the grain bowl all read like Duke&apos;s, not a generic pub SKU list.
+                  </p>
+                </div>
+                <div className="rounded-[1.5rem] border border-black/10 bg-white/30 p-5">
+                  <p className="kicker text-[10px] text-[#68411f]">Dietary range</p>
+                  <p className="mt-3 text-sm leading-7 text-[#423427]">
+                    Vegan, vegetarian, and gluten-free lanes stay visible from the first scroll so
+                    the group can pick Duke&apos;s without needing a side conversation.
+                  </p>
+                </div>
               </div>
             </div>
           </ScrollReveal>
           <div className="grid gap-4">
-            <ScrollReveal>
-              <div className="paper-panel rounded-[2rem] p-7 sm:p-8">
-                <p className="kicker text-[10px] text-[#68411f]">Menu breadth</p>
-                <h2 className="display-serif mt-4 text-4xl leading-tight text-[#191411] sm:text-5xl">
-                  Built for burger people, salad people, grain-bowl people, and the beer-first table.
-                </h2>
-              </div>
-            </ScrollReveal>
             <div className="grid gap-4 md:grid-cols-3">
               {menuPreview.map((preview, index) => (
                 <ScrollReveal key={preview.category} delay={index * 80}>
@@ -292,9 +303,9 @@ export default function HomePage() {
                 Duke&apos;s feels alive because the calendar repeats on purpose.
               </h2>
               <p className="mt-5 text-base leading-8 text-[rgba(241,235,222,0.72)]">
-                Treat events like brand identity, not an afterthought. Vinyl, whiskey, live music,
-                and karaoke belong in the core story because they explain why a tavern pick becomes
-                a recurring plan.
+                Vinyl nights, whiskey specials, live music, and Friday karaoke are the proof that
+                Duke&apos;s is more than a one-off dinner stop. The calendar gives the room a reason
+                to pull people back in next week.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <Link
@@ -399,9 +410,9 @@ export default function HomePage() {
                 Main Street is part of the product, not a footnote.
               </h2>
               <p className="mt-5 text-base leading-8 text-[rgba(241,235,222,0.72)]">
-                Duke&apos;s should feel specific to the downtown block it lives on. The site gets
-                stronger when it explains the room as a Main Street meet-up point instead of a
-                generic tavern floating in nowhere.
+                Duke&apos;s gets stronger the second it feels like a real downtown meet-up point
+                instead of a tavern floating in nowhere. Main Street is where the plan starts, not
+                just where the map pin lands.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <Link

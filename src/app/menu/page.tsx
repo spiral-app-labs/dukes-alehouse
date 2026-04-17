@@ -14,8 +14,8 @@ export default function MenuPage() {
               Duke&apos;s menu keeps the tavern energy, then gives the table actual range.
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-[rgba(241,235,222,0.74)]">
-              Real menu sections, real item names, real prices, and a direct Toast handoff when the
-              table is done deciding.
+              From bison burgers and hot sandwiches to grain bowls, whitefish, vegan plates, and
+              gluten-free desserts, this is the part of Duke&apos;s that makes mixed groups easy.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
@@ -67,9 +67,9 @@ export default function MenuPage() {
             <aside className="line-card rounded-[2rem] p-7">
               <p className="kicker text-[10px] text-[var(--gold-300)]">How to use this page</p>
               <div className="mt-5 space-y-4 text-sm leading-7 text-[rgba(241,235,222,0.72)]">
-                <p>Jump by category, scan the house signatures, then hand the order straight to Toast.</p>
-                <p>Gluten-free, vegetarian, and vegan lanes stay visible because that is part of Duke&apos;s practical value for mixed groups.</p>
-                <p>Use the beer page when the board matters more than the plate.</p>
+                <p>Jump by category, lock in the house signatures, then hand the order straight to Toast.</p>
+                <p>Gluten-free, vegetarian, and vegan lanes stay visible because somebody at the table always needs them.</p>
+                <p>Use the beer page when the board matters just as much as the plate.</p>
               </div>
               <div className="mt-7 grid gap-3">
                 <a
