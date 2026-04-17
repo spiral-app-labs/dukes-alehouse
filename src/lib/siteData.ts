@@ -46,7 +46,7 @@ export const dukeBusiness = {
   heroTitle:
     "The downtown tavern for dinner groups, beer people, and nights that turn into plans.",
   heroBody:
-    "Duke's keeps Main Street loud in the right way: direct Toast ordering, Tock reservations, a live Untappd handoff, and a kitchen that works for burgers, grain bowls, vegans, vegetarians, and gluten-free regulars without flattening the room into generic pub copy.",
+    "Duke's keeps Main Street loud in the right way: direct Toast ordering, Tock reservations, a live Untappd board, and a kitchen built for burgers, grain bowls, vegan regulars, vegetarians, and gluten-free diners at the same table.",
   utilityLine:
     "Order direct. Reserve fast. Check the taps live. Contact the house when the table gets bigger.",
 };
@@ -68,6 +68,23 @@ export const heroChips = [
   "Untappd live taps",
   "Weekly room rhythm",
   "Mixed-group menu",
+];
+
+export const heroServiceMoments = [
+  {
+    label: "Tonight starts here",
+    title: "Order on Toast, reserve on Tock, then let the room handle the rest.",
+  },
+  {
+    label: "Group-night reality",
+    title: "Parties of 9+ go straight to the house by phone or email.",
+  },
+];
+
+export const heroUtilityNotes = [
+  "Monday kitchen 12 to 8, bar until midnight",
+  "Tuesday house closed",
+  "Live beer board on Untappd",
 ];
 
 export const fastFacts = [
@@ -125,16 +142,16 @@ export const hours = [
 
 export const menuMoments = [
   {
-    title: "More than bar-food autopilot",
-    body: "Duke's works when one table wants burgers, another wants tofu or cauliflower, and somebody else needs gluten-free options without the kitchen feeling like it split into two restaurants.",
+    title: "A mixed-group menu that actually closes the plan",
+    body: "Bison burgers, grain bowls, tofu, cauliflower, whitefish, and gluten-free desserts all belong on the same table here, so nobody has to talk themselves into a backup spot.",
   },
   {
     title: "House names people recognize",
-    body: "The menu has real Duke's signatures, not generic alehouse filler: Duke's Burger, Duke's Cuban, Duke's Chicken, grain bowls, beet salad, and Korean fried cauliflower all give the room its own shape.",
+    body: "Duke's Burger, Duke's Cuban, Duke's Chicken, the grain bowl, beet salad, and Korean fried cauliflower give the menu its own shape instead of reading like interchangeable alehouse filler.",
   },
   {
-    title: "Direct ordering stays easy",
-    body: "The menu page should help people choose fast, then hand them directly to Toast instead of sending them hunting through the footer or third-party apps.",
+    title: "The handoff stays direct",
+    body: "Once the table knows what it wants, the next step is still Duke's own Toast flow rather than a generic delivery marketplace detour.",
   },
 ];
 
@@ -356,16 +373,16 @@ export const menuSections = [
 
 export const beerHighlights = [
   {
-    title: "The live draft board belongs on Untappd",
-    body: "Duke's beer credibility works because the board moves. The site should sell that reality and then hand people to the live list instead of pretending the taps stay frozen.",
+    title: "The live draft board stays live",
+    body: "Duke's beer credibility comes from movement. Untappd is the right handoff because regulars care what is pouring now, not what a static website promised last month.",
   },
   {
     title: "Belgian roots still matter",
-    body: "The public Duke's identity consistently leans Belgian, which gives the room a sharper beer point of view than a generic craft-beer bar.",
+    body: "The public Duke's identity still leans Belgian, which gives the room a sharper point of view than the usual catch-all craft-beer bar.",
   },
   {
     title: "Drinks go past beer",
-    body: "Whiskey Wednesdays and Monday-night THC cocktail promos make it clear the bar program extends beyond pints, even when beer leads the brand.",
+    body: "Whiskey Wednesdays and cocktail promos keep the bar program broader than pints alone, even when beer leads the brand.",
   },
 ];
 
@@ -402,8 +419,8 @@ export const eventFeatures = [
 
 export const privatePartyDetails = [
   "Groups of 9+ are still routed to the house directly by phone or email.",
-  "The banquet page and menu are the source-backed handoff when dinner turns into a larger plan.",
-  "The tone should stay local and practical: birthdays, work hangs, rehearsal-adjacent dinners, and neighborhood group nights.",
+  "The banquet page and menu keep the planning handoff easy when dinner turns into a larger Main Street plan.",
+  "Birthdays, work hangs, rehearsal-adjacent dinners, and neighborhood group nights all fit better here than in a generic banquet room.",
 ];
 
 export const partyUseCases = [
@@ -419,19 +436,19 @@ export const neighborhoodNotes = [
     body: "Duke's is a downtown Crystal Lake choice, not a highway stop. Meeting on Main Street and staying late is part of the social logic of the room.",
   },
   {
-    title: "Directions stay practical",
-    body: "The site should keep directions, call, and reservation paths visible so a plan can close fast on mobile.",
+    title: "The plan closes fast",
+    body: "Directions, call, reservations, and gift cards stay easy to reach because most Duke's decisions happen on a phone while the group chat is still open.",
   },
   {
-    title: "Parking context should stay factual",
-    body: "Downtown Crystal Lake publishes parking guidance separately, so the site can link guests there without inventing proprietary lot claims.",
+    title: "Parking guidance stays honest",
+    body: "Downtown Crystal Lake publishes parking guidance separately, so guests can get the real municipal guidance without Duke's inventing lot claims it does not own.",
   },
 ];
 
 export const aboutNotes = [
-  "Duke's is strongest when it feels like a room you pick because beer, dinner, and a night out can all happen in the same place.",
-  "The site should never describe Duke's like a polished gastropub concept deck. It should read like a downtown regular already knows why the room works.",
-  "Local proof beats slogans: Main Street location, direct ordering, Tock reservations, recurring weekly nights, and an actual mixed-group menu are the right building blocks.",
+  "Duke's is the room you pick when beer, dinner, and a real night out all need to happen in one place.",
+  "The strongest Duke's story is still practical: Main Street location, direct ordering, Tock reservations, recurring weekly nights, and a menu that works for the whole group.",
+  "That combination is what turns a casual plan into a repeat stop for downtown Crystal Lake regulars.",
 ];
 
 export const footerActionLinks = [

@@ -9,11 +9,11 @@ export default function BeerPage() {
           <ScrollReveal>
             <p className="kicker text-[11px] text-[var(--gold-300)]">Beer + drinks</p>
             <h1 className="display-serif mt-5 max-w-5xl text-5xl leading-[0.95] text-[var(--stone-100)] md:text-6xl lg:text-7xl">
-              The beer identity should feel live, specific, and tied to the room.
+              Belgian lean, rotating taps, and whiskey nights keep the bar side of Duke&apos;s sharp.
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-[rgba(241,235,222,0.74)]">
-              Duke&apos;s should not pretend the tap board is static. Sell the beer point of view,
-              the Belgian lean, and the way whiskey nights keep the bar program broader than one lane.
+              The list moves, the board changes, and the right final handoff is still Untappd. The
+              website just needs to make that beer point of view feel worth checking.
             </p>
           </ScrollReveal>
         </div>
@@ -43,11 +43,11 @@ export default function BeerPage() {
             <div>
               <p className="kicker text-[10px] text-[var(--gold-300)]">Live handoff</p>
               <h2 className="display-serif mt-4 text-4xl text-[var(--stone-100)] sm:text-5xl">
-                The right move is to sell the board, then open Untappd.
+                Check the room&apos;s point of view here, then open the live board.
               </h2>
               <p className="mt-4 text-base leading-8 text-[rgba(241,235,222,0.72)]">
-                That keeps the page honest and keeps regulars from treating the website like a stale
-                beer menu.
+                That keeps the beer page honest and gives regulars the one thing they actually want:
+                the current pours, not a stale screenshot of last week&apos;s taps.
               </p>
             </div>
           </ScrollReveal>
