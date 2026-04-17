@@ -27,11 +27,11 @@ export const metadata: Metadata = {
     template: `%s | ${dukeBusiness.name}`,
   },
   description:
-    "Direct Toast ordering, Tock reservations, live Untappd taps, weekly events, and a mixed-group menu in downtown Crystal Lake.",
+    "Real Duke's imagery, official guest reviews, Toast ordering, Tock reservations, live Untappd taps, and a mixed-group menu in downtown Crystal Lake.",
   openGraph: {
     title: `${dukeBusiness.name} | Downtown Crystal Lake Tavern`,
     description:
-      "Plan dinner, drinks, reservations, live events, and private parties at Duke's Alehouse & Kitchen.",
+      "See the room, the food, the official guest proof, and the live order-reserve-beer rails that make Duke's easy to send.",
     url: siteUrl,
     siteName: dukeBusiness.name,
     locale: "en_US",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${dukeBusiness.name} | Downtown Crystal Lake Tavern`,
     description:
-      "Direct ordering, Tock reservations, weekly room rhythm, and a menu built for the whole table.",
+      "Real Duke's proof: official guest reviews, real tavern imagery, direct ordering, reservations, and the live beer board.",
     images: [`${siteUrl}/opengraph-image`],
   },
 };
