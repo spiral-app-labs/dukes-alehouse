@@ -1,36 +1,39 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import "./globals.css";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import StickyMobileActions from "@/components/StickyMobileActions";
-import { dukeLinks, siteUrl } from "@/lib/siteData";
+import { dukeBrandAssets, dukeBusiness, dukeLinks, siteUrl } from "@/lib/siteData";
+
+const geistSans = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+});
+
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+  weight: "100 900",
+});
 
 const metadataBase = new URL(siteUrl);
 
 export const metadata: Metadata = {
   metadataBase,
   title: {
-    default: "Duke's Alehouse & Kitchen | Crystal Lake Craft Beer and Kitchen",
-    template: "%s | Duke's Alehouse & Kitchen",
+    default: `${dukeBusiness.name} | Downtown Crystal Lake Tavern`,
+    template: `%s | ${dukeBusiness.name}`,
   },
   description:
-    "Downtown Crystal Lake gastropub with direct online ordering, Tock reservations, 140+ craft beers and Belgian ales, rotating live events, and Duke's signature menu.",
-  keywords: [
-    "gastropub",
-    "Crystal Lake IL",
-    "craft beer",
-    "gourmet burgers",
-    "Belgian ale",
-    "live music",
-    "restaurant",
-    "Duke's Alehouse",
-  ],
+    "Direct Toast ordering, Tock reservations, live Untappd taps, weekly events, and a mixed-group menu in downtown Crystal Lake.",
   openGraph: {
-    title: "Duke's Alehouse & Kitchen | Crystal Lake Craft Beer and Kitchen",
+    title: `${dukeBusiness.name} | Downtown Crystal Lake Tavern`,
     description:
-      "Order direct, book reservations on Tock, explore the beer list, and plan banquets at Duke's Alehouse & Kitchen in Crystal Lake.",
+      "Plan dinner, drinks, reservations, live events, and private parties at Duke's Alehouse & Kitchen.",
     url: siteUrl,
-    siteName: "Duke's Alehouse & Kitchen",
+    siteName: dukeBusiness.name,
     locale: "en_US",
     type: "website",
     images: [
@@ -38,68 +41,39 @@ export const metadata: Metadata = {
         url: `${siteUrl}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: "Duke's Alehouse & Kitchen in Crystal Lake, Illinois",
+        alt: `${dukeBusiness.name} in ${dukeBusiness.city}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Duke's Alehouse & Kitchen",
+    title: `${dukeBusiness.name} | Downtown Crystal Lake Tavern`,
     description:
-      "Order direct, reserve on Tock, and explore Duke's craft beer and event calendar.",
+      "Direct ordering, Tock reservations, weekly room rhythm, and a menu built for the whole table.",
     images: [`${siteUrl}/opengraph-image`],
-  },
-  robots: {
-    index: true,
-    follow: true,
   },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Restaurant",
-  name: "Duke's Alehouse & Kitchen",
-  image: [`${siteUrl}/opengraph-image`],
+  name: dukeBusiness.name,
+  image: [dukeBrandAssets.hero, dukeBrandAssets.logo],
   url: siteUrl,
-  telephone: "(815) 356-9980",
-  email: "hello@dukesalehouse.net",
-  menu: dukeLinks.order,
+  telephone: dukeBusiness.phoneDisplay,
+  email: dukeBusiness.emailDisplay,
+  servesCuisine: ["American", "Tavern", "Beer Bar"],
   address: {
     "@type": "PostalAddress",
-    streetAddress: "110 N Main St",
+    streetAddress: dukeBusiness.addressLineOne,
     addressLocality: "Crystal Lake",
     addressRegion: "IL",
     postalCode: "60014",
     addressCountry: "US",
   },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 42.2414,
-    longitude: -88.3162,
-  },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Wednesday", "Thursday", "Sunday"],
-      opens: "12:00",
-      closes: "00:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Friday", "Saturday"],
-      opens: "12:00",
-      closes: "01:00",
-    },
-  ],
-  servesCuisine: ["American", "Gastropub", "Craft Beer"],
-  priceRange: "$$",
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.3",
-    reviewCount: "1149",
-    bestRating: "5",
-  },
-  acceptsReservations: "Yes",
+  menu: dukeLinks.menu,
+  acceptsReservations: "True",
+  sameAs: [dukeLinks.facebook, dukeLinks.instagram, dukeLinks.yelp],
 };
 
 export default function RootLayout({
@@ -115,7 +89,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased bg-dark-bg text-cream">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} bg-[var(--ink-950)] antialiased`}
+      >
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />

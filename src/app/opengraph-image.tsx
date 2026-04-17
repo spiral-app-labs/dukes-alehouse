@@ -34,9 +34,9 @@ export default function OpenGraphImage() {
           </div>
         </div>
         <div style={{ display: "flex", gap: "24px", fontSize: 28 }}>
-          <div>140+ craft beers</div>
-          <div>21 rotating taps</div>
           <div>Downtown Crystal Lake</div>
+          <div>Weekly room rhythm</div>
+          <div>Mixed-group menu</div>
         </div>
       </div>
     ),
