@@ -5,6 +5,16 @@ export const dukeBrandAssets = {
   logo: "https://s3.us-east-1.amazonaws.com/securetree.com/Dukes+Alehouse+and+Kitchen/nop/Dukes-Logo.png",
   hero:
     "https://s3.us-east-1.amazonaws.com/securetree.com/Dukes+Alehouse+and+Kitchen/nop/Dukes-Hero-BG.jpg",
+  diningRoom:
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1600%2Cheight%3D1600%2Cformat%3Dauto%2Cfit%3Dscale-down/vmmesojp/c85f911c-6ab6-4372-bcbf-d83cfa60f71c.jpg",
+  cocktails:
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1600%2Cheight%3D1600%2Cformat%3Dauto%2Cfit%3Dscale-down/vmmesojp/8b0f7f75-83ec-44fc-b3d7-aafb8544f0ad.jpg",
+  burger:
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1600%2Cheight%3D1600%2Cformat%3Dauto%2Cfit%3Dscale-down/vmmesojp/b10cc8f4-f689-49f0-b949-5ca30c6f97c8.jpg",
+  cheeseCurds:
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1440%2Cheight%3D1440%2Cfit%3Dscale-down%2Cformat%3Dauto/vmmesojp/b072dff8-acde-42ab-8255-93a0ae6edb6a.jpg",
+  veggieBurger:
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1440%2Cheight%3D1440%2Cfit%3Dscale-down%2Cformat%3Dauto/vmmesojp/0c4bb7ca-2092-4079-a059-52c1c6888fba.jpg",
 };
 
 export const dukeLinks = {
@@ -99,6 +109,59 @@ export const fastFacts = [
   {
     title: "A room with a weekly pulse",
     body: "Hi-Fi vinyl nights, Whiskey Wednesdays, Thursday live music, and Friday karaoke give Duke's a repeating reason to choose it over another pub stop.",
+  },
+];
+
+export const visualProofMoments = [
+  {
+    title: "The room actually looks like the night out Duke's is selling.",
+    body: "The official gallery backs the Bramble mood with a real wood-and-brick dining room instead of generic tavern styling.",
+    image: dukeBrandAssets.diningRoom,
+    alt: "Duke's Alehouse interior dining room",
+    accent: "Official gallery interior",
+  },
+  {
+    title: "The food proof is specific to Duke's signatures.",
+    body: "Cheese curds, burgers, grain bowls, and other house staples show up as real plates, not generic pub placeholders.",
+    image: dukeBrandAssets.cheeseCurds,
+    alt: "Duke's Alehouse cheese curds",
+    accent: "Official gallery food shot",
+  },
+  {
+    title: "The bar side shows up as cocktails, beer, and staying power.",
+    body: "Cocktail imagery plus the live Untappd handoff makes the beer-first story feel current instead of decorative.",
+    image: dukeBrandAssets.cocktails,
+    alt: "Cocktails at Duke's Alehouse",
+    accent: "Official gallery bar shot",
+  },
+];
+
+export const trustBadges = [
+  "Official guest reviews tied to real menu items",
+  "Tripadvisor Travelers' Choice listing",
+  "Tock reservations live now",
+  "Toast direct ordering live now",
+  "Untappd beer board live now",
+];
+
+export const reviewHighlights = [
+  {
+    quote: "One of my favorites in the entire world.",
+    item: "Chipotle Chicken Pasta",
+    reviewer: "Jason",
+    context: "Official Duke's review",
+  },
+  {
+    quote: "The vegan chocolate torte is heavenly.",
+    item: "Vegan Chocolate Torte",
+    reviewer: "Emily",
+    context: "Official Duke's review",
+  },
+  {
+    quote: "This appetizer is absolutely delicious.",
+    item: "Tempura Green Beans",
+    reviewer: "Donna M.",
+    context: "Official Duke's review",
   },
 ];
 

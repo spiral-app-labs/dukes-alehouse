@@ -18,6 +18,9 @@ import {
   neighborhoodNotes,
   partyUseCases,
   privatePartyDetails,
+  reviewHighlights,
+  trustBadges,
+  visualProofMoments,
 } from "@/lib/siteData";
 
 export default function HomePage() {
@@ -211,6 +214,73 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="border-y border-black/10 bg-[#e6d8c2] py-20 text-[#1b1511] sm:py-24">
+        <div className="section-shell grid gap-10 lg:grid-cols-[0.94fr_1.06fr] lg:items-end">
+          <ScrollReveal>
+            <div>
+              <p className="kicker text-[10px] text-[#6c4322]">Visual proof, not just atmosphere copy</p>
+              <h2 className="display-serif mt-5 max-w-3xl text-4xl leading-tight sm:text-5xl">
+                Duke&apos;s needs to show the room, the food, and the bar energy before the owner
+                has to imagine any of it.
+              </h2>
+              <p className="mt-5 max-w-2xl text-base leading-8 text-[#463629]">
+                Bramble still fits, but the proof has to get more literal. These are real Duke&apos;s
+                images from the official gallery, surfaced early so the sell story lands on sight.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            <ScrollReveal>
+              <article className="relative min-h-[26rem] overflow-hidden rounded-[2rem] bg-black">
+                <Image
+                  src={visualProofMoments[0].image}
+                  alt={visualProofMoments[0].alt}
+                  fill
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7">
+                  <p className="kicker text-[10px] text-[var(--gold-300)]">
+                    {visualProofMoments[0].accent}
+                  </p>
+                  <h3 className="display-serif mt-3 text-3xl text-[var(--stone-100)]">
+                    {visualProofMoments[0].title}
+                  </h3>
+                  <p className="mt-3 max-w-md text-sm leading-7 text-[rgba(241,235,222,0.78)]">
+                    {visualProofMoments[0].body}
+                  </p>
+                </div>
+              </article>
+            </ScrollReveal>
+
+            <div className="grid gap-4">
+              {visualProofMoments.slice(1).map((moment, index) => (
+                <ScrollReveal key={moment.title} delay={index * 80}>
+                  <article className="relative min-h-[12.5rem] overflow-hidden rounded-[1.7rem] bg-black">
+                    <Image
+                      src={moment.image}
+                      alt={moment.alt}
+                      fill
+                      sizes="(min-width: 1024px) 20vw, 100vw"
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 p-5">
+                      <p className="kicker text-[10px] text-[var(--gold-300)]">{moment.accent}</p>
+                      <h3 className="display-serif mt-3 text-2xl leading-tight text-[var(--stone-100)]">
+                        {moment.title}
+                      </h3>
+                    </div>
+                  </article>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="border-y border-white/8 bg-[#120f14] py-20 sm:py-24">
         <div className="section-shell grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
           <ScrollReveal>
@@ -345,6 +415,54 @@ export default function HomePage() {
                     {event.description}
                   </p>
                 </a>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 sm:py-24">
+        <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <ScrollReveal>
+            <div className="line-card rounded-[2rem] p-7 sm:p-8">
+              <p className="kicker text-[10px] text-[var(--gold-300)]">Trust that feels owner-sendable</p>
+              <h2 className="display-serif mt-5 text-4xl leading-tight text-[var(--stone-100)] sm:text-5xl">
+                The proof isn&apos;t abstract. Duke&apos;s already has real guests, real platforms,
+                and real menu-item love on the record.
+              </h2>
+              <p className="mt-5 text-base leading-8 text-[rgba(241,235,222,0.72)]">
+                The strongest social-proof moment for Duke&apos;s is menu-specific praise paired with
+                live ordering, reservations, and beer discovery rails. It shows a tavern people
+                already use, not one that still needs to earn trust.
+              </p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                {trustBadges.map((badge) => (
+                  <span
+                    key={badge}
+                    className="rounded-full border border-white/12 px-4 py-3 text-xs font-medium tracking-[0.12em] text-[rgba(241,235,222,0.8)]"
+                  >
+                    {badge}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid gap-4 lg:grid-cols-3">
+            {reviewHighlights.map((review, index) => (
+              <ScrollReveal key={`${review.reviewer}-${review.item}`} delay={index * 80}>
+                <article className="paper-panel flex h-full flex-col rounded-[1.75rem] p-6">
+                  <p className="kicker text-[10px] text-[#6c4322]">{review.context}</p>
+                  <p className="display-serif mt-4 text-3xl leading-tight text-[#1b1511]">
+                    &ldquo;{review.quote}&rdquo;
+                  </p>
+                  <div className="mt-auto pt-6">
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#6c4322]">
+                      {review.item}
+                    </p>
+                    <p className="mt-2 text-sm text-[#4b3a2b]">{review.reviewer}</p>
+                  </div>
+                </article>
               </ScrollReveal>
             ))}
           </div>
